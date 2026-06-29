@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   PALETA DE COLORES
+   ========================= */
+
+:root {
+  /* Colores principales */
+  --color-primary: #E50914;
+  --color-primary-hover: #FF3B3B;
+
+  /* Fondos */
+  --bg-main: #0D0D0D;
+  --bg-secondary: #1A1A1A;
+  --bg-card: #242424;
+
+  /* Texto */
+  --text-primary: #FFFFFF;
+  --text-secondary: #B3B3B3;
+
+  /* Bordes */
+  --border-color: #333333;
+
+  /* Estados */
+  --success: #28A745;
+  --warning: #FFC107;
+  --danger: #DC3545;
+
+  /* Sombras */
+  --shadow-red: 0 0 15px rgba(229, 9, 20, 0.4);
+  --shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.5);
+
+  /* Transiciones */
+  --transition: all 0.3s ease;
+}

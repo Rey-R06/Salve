@@ -1,0 +1,363 @@
+/* ── BASE ── */
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background: #B80000;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Bebas Neue', sans-serif;
+  cursor: crosshair;
+  padding-top: var(--nav-height);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.22) 1px, transparent 1px);
+  background-size: 7px 7px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.splashTl {
+  position: absolute;
+  top: -80px;
+  left: -60px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0,0,0,0.28) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.splashBr {
+  position: absolute;
+  bottom: -60px;
+  right: -40px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(80,0,0,0.6) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.paintSplat {
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: #8B0000;
+  z-index: 3;
+  clip-path: polygon(
+    0 0, 100% 0, 100% 40%,
+    97% 100%, 94% 40%, 91% 100%, 88% 35%, 84% 100%,
+    80% 30%, 76% 100%, 72% 40%, 68% 100%, 64% 35%,
+    60% 100%, 56% 30%, 52% 95%, 48% 30%, 44% 100%,
+    40% 35%, 36% 100%, 32% 40%, 28% 100%, 24% 30%,
+    20% 100%, 16% 40%, 12% 100%, 8% 35%, 4% 100%, 0 40%
+  );
+}
+
+/* ── INNER WRAPPER ── */
+.heroInner {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px 32px 0;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ── FILA SUPERIOR ── */
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 16px;
+}
+
+/* Bloque título */
+.titleBlock {
+  flex: 1;
+}
+
+.eyebrow {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 8px;
+  color: rgba(0,0,0,0.45);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.titleLines {
+  line-height: 0.82;
+  margin-bottom: 10px;
+}
+
+.titleLine1 {
+  display: block;
+  font-size: clamp(4rem, 13vw, 9rem);
+  color: #ffffff;
+  text-shadow: 5px 5px 0 rgba(0,0,0,0.4);
+  letter-spacing: 4px;
+}
+
+.titleLine2 {
+  display: block;
+  font-size: clamp(4rem, 13vw, 9rem);
+  color: #0a0a0a;
+  letter-spacing: 4px;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.08);
+}
+
+.subtitle {
+  font-family: 'Special Elite', serif;
+  font-size: clamp(0.75rem, 1.8vw, 1rem);
+  color: rgba(0,0,0,0.5);
+  font-style: italic;
+  letter-spacing: 2px;
+}
+
+/* ── TARJETA PRÓXIMO SHOW ── */
+.showCard {
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(0,0,0,0.3);
+  border-top: 3px solid #0a0a0a;
+  padding: 18px 22px;
+  min-width: 220px;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.showCardLabel {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 5px;
+  color: rgba(0,0,0,0.5);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.showDate {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #ffffff;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+  line-height: 1;
+  letter-spacing: 4px;
+}
+
+.showDivider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0,0,0,0.25);
+  margin: 4px 0;
+}
+
+.showVenue {
+  font-size: 1.1rem;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+.showCity {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 3px;
+  color: rgba(0,0,0,0.5);
+  text-transform: uppercase;
+}
+
+.showMeta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.showMetaItem {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+  color: rgba(0,0,0,0.6);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.showMetaDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #0a0a0a;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.showBtn {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  padding: 0.6rem 1rem;
+  background: #0a0a0a;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%);
+  margin-top: 6px;
+  transition: background 0.15s;
+}
+
+.showBtn:hover {
+  background: #1e1e1e;
+}
+
+/* ── LÍNEAS RASGADAS ── */
+.scratch {
+  width: 100%;
+  height: 3px;
+  background: rgba(0,0,0,0.15);
+  margin-bottom: 3px;
+  clip-path: polygon(0 0, 100% 30%, 100% 100%, 0 70%);
+}
+
+.scratch2 {
+  width: 100%;
+  height: 1px;
+  background: rgba(0,0,0,0.08);
+  margin-bottom: 0;
+}
+
+/* ── FOTOS GRANDES ── */
+.membersRow {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  gap: 4px;
+}
+
+.memberWrap {
+  flex: 1;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.memberWrapTall .memberPhoto {
+  transform: translateY(-24px);
+}
+
+.memberPhoto {
+  width: 100%;
+  aspect-ratio: 3 / 5;
+  background: linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.6) 100%);
+  border-top: 3px solid rgba(0,0,0,0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.memberImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(100%) contrast(1.15) brightness(0.85);
+  position: absolute;
+  inset: 0;
+}
+
+.placeholderIcon {
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: rgba(0,0,0,0.1);
+  line-height: 1;
+}
+
+.placeholderLabel {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.48rem;
+  letter-spacing: 3px;
+  color: rgba(0,0,0,0.18);
+  text-transform: uppercase;
+}
+
+.nameTag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+  padding: 28px 10px 10px;
+  text-align: center;
+}
+
+.nameTagName {
+  display: block;
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+
+.nameTagRole {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(0.4rem, 0.8vw, 0.52rem);
+  letter-spacing: 3px;
+  color: #CC0000;
+  text-transform: uppercase;
+}
+
+
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 0.75; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .heroInner { padding: 20px 20px 0; }
+  .showCard  { min-width: 180px; max-width: 200px; padding: 14px 16px; }
+}
+
+@media (max-width: 680px) {
+  .topRow {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .showCard {
+    max-width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+  .showDate    { font-size: 2.5rem; }
+  .showDivider { display: none; }
+  .membersRow  { gap: 2px; }
+  .memberWrapTall .memberPhoto { transform: translateY(-12px); }
+}
+
+@media (max-width: 480px) {
+  .heroInner  { padding: 14px 14px 0; }
+  .showCard   { padding: 10px 12px; }
+}

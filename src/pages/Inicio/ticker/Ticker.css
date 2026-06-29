@@ -1,0 +1,33 @@
+.ticker {
+  background: #CC0000;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.6rem 0;
+  border-top: 1px solid #8B0000;
+  border-bottom: 1px solid #8B0000;
+}
+
+.tickerTrack {
+  display: inline-block;
+  animation: ticker 22s linear infinite;
+}
+
+.tickerItem {
+  display: inline-block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 5px;
+  color: #ffffff;
+  padding: 0 1.5rem;
+}
+
+.tickerDot {
+  color: #8B0000;
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

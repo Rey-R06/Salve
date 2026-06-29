@@ -1,0 +1,241 @@
+.footer {
+  background: #080808;
+  border-top: 2px solid #CC0000;
+  padding: 4rem 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Texto fantasma SP de fondo */
+.footerGhost {
+  position: absolute;
+  right: 1rem;
+  bottom: -2rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14rem;
+  color: rgba(139,0,0,0.05);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+
+/* ── Fila superior ── */
+.footerTop {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Columna marca */
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footerLogo {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: #CC0000;
+  letter-spacing: 6px;
+  text-shadow: 3px 3px 0 #8B0000;
+  line-height: 1;
+}
+
+.footerSub {
+  display: block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 4px;
+  color: rgba(240,237,232,0.25);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.footerDesc {
+  font-family: 'Special Elite', serif;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: rgba(240,237,232,0.4);
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.footerSocial {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footerSocialLink {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  color: rgba(240,237,232,0.4);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footerSocialLink:hover {
+  color: #CC0000;
+}
+
+.footerSocialArrow {
+  color: #CC0000;
+}
+
+/* Columnas nav y newsletter */
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerColTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 4px;
+  color: #F0EDE8;
+  position: relative;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.footerColTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  background: #CC0000;
+}
+
+.footerLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.footerLink {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  color: rgba(240,237,232,0.35);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.15s;
+}
+
+.footerLink:hover {
+  color: #CC0000;
+}
+
+/* Newsletter */
+.footerNlText {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: rgba(240,237,232,0.3);
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+.footerNlRow {
+  display: flex;
+  margin-top: 0.25rem;
+}
+
+.footerNlInput {
+  flex: 1;
+  background: #141414;
+  border: 1px solid rgba(204,0,0,0.35);
+  border-right: none;
+  color: #F0EDE8;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.78rem;
+  padding: 0.7rem 1rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.footerNlInput:focus {
+  border-color: #CC0000;
+}
+
+.footerNlInput::placeholder {
+  color: rgba(240,237,232,0.2);
+}
+
+.footerNlBtn {
+  background: #CC0000;
+  border: none;
+  color: #ffffff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  padding: 0 1.25rem;
+  cursor: crosshair;
+  clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 100%, 0 100%);
+  transition: background 0.15s;
+}
+
+.footerNlBtn:hover {
+  background: #8B0000;
+}
+
+/* ── Barra inferior ── */
+.footerBottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(204,0,0,0.15);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footerCopy,
+.footerMade {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 2px;
+  color: rgba(240,237,232,0.18);
+  text-transform: uppercase;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .footerTop {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footerBrand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 540px) {
+  .footer { padding: 3rem 1.25rem 2rem; }
+  .footerTop {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .footerBrand { grid-column: 1; }
+  .footerBottom { flex-direction: column; gap: 0.25rem; }
+}

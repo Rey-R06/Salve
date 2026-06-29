@@ -1,0 +1,239 @@
+.concierto {
+  background: #080808;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.concierto::before {
+  content: 'LIVE';
+  position: absolute;
+  right: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(8rem, 18vw, 16rem);
+  color: rgba(139,0,0,0.05);
+  pointer-events: none;
+  letter-spacing: 2rem;
+  line-height: 1;
+}
+
+.conciertoInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* ── Izquierda ── */
+.conciertoLabel {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 7px;
+  color: #CC0000;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.conciertoTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.88;
+  color: #F0EDE8;
+  text-shadow: 3px 3px 0 #8B0000;
+}
+
+.conciertoDivider {
+  width: 60px;
+  height: 3px;
+  background: #CC0000;
+  margin: 1rem 0 1.5rem;
+  clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 100%, 5px 100%);
+}
+
+.conciertoDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.conciertoDetail {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(204,0,0,0.1);
+  padding-bottom: 0.5rem;
+}
+
+.detailLabel {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 4px;
+  color: rgba(240,237,232,0.35);
+  text-transform: uppercase;
+  min-width: 55px;
+}
+
+.detailValue {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: #F0EDE8;
+  letter-spacing: 2px;
+}
+
+.detailValueRed {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: #CC0000;
+  letter-spacing: 2px;
+}
+
+.conciertoBtn {
+  display: inline-block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 5px;
+  padding: 0.85rem 2.5rem;
+  background: #CC0000;
+  color: #ffffff;
+  text-decoration: none;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+  transition: background 0.15s, transform 0.15s;
+}
+
+.conciertoBtn:hover {
+  background: #8B0000;
+  transform: translateY(-2px);
+}
+
+/* ── Derecha ── */
+.countdownLabel {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 5px;
+  color: #CC0000;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.cdBlock {
+  background: #141414;
+  border: 1px solid rgba(204,0,0,0.3);
+  padding: 1rem 0.5rem;
+  text-align: center;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  position: relative;
+}
+
+.cdBlock::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: #CC0000;
+  opacity: 0.6;
+}
+
+.cdNum {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #CC0000;
+  line-height: 1;
+  text-shadow: 2px 2px 0 #8B0000;
+}
+
+.cdLbl {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 3px;
+  color: rgba(240,237,232,0.3);
+  text-transform: uppercase;
+}
+
+/* Lineup */
+.lineup {
+  background: #141414;
+  border: 1px solid rgba(204,0,0,0.2);
+  padding: 1.25rem;
+}
+
+.lineupTitle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 5px;
+  color: #CC0000;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(204,0,0,0.15);
+}
+
+.lineupItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.lineupItem:last-child {
+  border-bottom: none;
+}
+
+.lineupDotMain {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #CC0000;
+  flex-shrink: 0;
+}
+
+.lineupDotSupport {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(204,0,0,0.3);
+  flex-shrink: 0;
+}
+
+.lineupBand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  color: #F0EDE8;
+  letter-spacing: 2px;
+}
+
+.lineupType {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.5rem;
+  color: rgba(240,237,232,0.3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-left: auto;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .conciertoInner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .concierto { padding: 3rem 1.25rem; }
+}
+
+@media (max-width: 480px) {
+  .countdown { gap: 0.5rem; }
+}
