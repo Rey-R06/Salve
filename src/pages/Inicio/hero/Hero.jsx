@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import "./Hero.css"
+import { useEffect, useRef, useState } from "react";
+import "./Hero.css";
 
 // Datos del slider
 const heroSlides = [
@@ -38,6 +38,9 @@ const heroSlides = [
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
   const totalSlides = heroSlides.length;
 
   const nextSlide = () => {
@@ -50,13 +53,51 @@ function Hero() {
     );
   };
 
+  // ===========================
+  // Swipe para móviles
+  // ===========================
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const distance = touchStartX.current - touchEndX.current;
+
+    if (distance > 60) {
+      nextSlide();
+    }
+
+    if (distance < -60) {
+      previousSlide();
+    }
+  };
+
+  // ===========================
+  // Autoplay solo en escritorio
+  // ===========================
+
   useEffect(() => {
-    const interval = setInterval(nextSlide, 6000);
+    if (window.innerWidth <= 768) return;
+
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 6000);
+
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="hero">
+    <section
+      className="hero"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <div
         className="hero-slider"
         style={{
@@ -106,6 +147,8 @@ function Hero() {
         ))}
       </div>
 
+      {/* Flechas (solo escritorio) */}
+
       <button
         className="hero-arrow hero-arrow-left"
         onClick={previousSlide}
@@ -120,6 +163,8 @@ function Hero() {
         &#10095;
       </button>
 
+      {/* Indicadores */}
+
       <div className="hero-dots">
         {heroSlides.map((_, index) => (
           <button
@@ -132,6 +177,8 @@ function Hero() {
           />
         ))}
       </div>
+
+      {/* Indicador de scroll */}
 
       <div className="hero-scroll">
         <span>SCROLL</span>
