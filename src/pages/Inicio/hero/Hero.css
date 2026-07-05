@@ -1,363 +1,684 @@
-/* ── BASE ── */
+/* ==========================================
+                HERO
+========================================== */
+
 .hero {
-  width: 100%;
-  min-height: 100vh;
-  background: #B80000;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Bebas Neue', sans-serif;
-  cursor: crosshair;
-  padding-top: var(--nav-height);
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #080808;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(0,0,0,0.22) 1px, transparent 1px);
-  background-size: 7px 7px;
-  pointer-events: none;
-  z-index: 1;
+/* ==========================================
+              SLIDER
+========================================== */
+
+.hero-slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform .8s ease-in-out;
 }
 
-.splashTl {
-  position: absolute;
-  top: -80px;
-  left: -60px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(0,0,0,0.28) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: 2;
-}
+.hero-slide {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
 
-.splashBr {
-  position: absolute;
-  bottom: -60px;
-  right: -40px;
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, rgba(80,0,0,0.6) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.paintSplat {
-  position: absolute;
-  top: var(--nav-height);
-  left: 0;
-  right: 0;
-  height: 12px;
-  background: #8B0000;
-  z-index: 3;
-  clip-path: polygon(
-    0 0, 100% 0, 100% 40%,
-    97% 100%, 94% 40%, 91% 100%, 88% 35%, 84% 100%,
-    80% 30%, 76% 100%, 72% 40%, 68% 100%, 64% 35%,
-    60% 100%, 56% 30%, 52% 95%, 48% 30%, 44% 100%,
-    40% 35%, 36% 100%, 32% 40%, 28% 100%, 24% 30%,
-    20% 100%, 16% 40%, 12% 100%, 8% 35%, 4% 100%, 0 40%
-  );
-}
-
-/* ── INNER WRAPPER ── */
-.heroInner {
-  position: relative;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 24px 32px 0;
-  max-width: 1400px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-/* ── FILA SUPERIOR ── */
-.topRow {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-bottom: 16px;
-}
-
-/* Bloque título */
-.titleBlock {
-  flex: 1;
-}
-
-.eyebrow {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.62rem;
-  letter-spacing: 8px;
-  color: rgba(0,0,0,0.45);
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.titleLines {
-  line-height: 0.82;
-  margin-bottom: 10px;
-}
-
-.titleLine1 {
-  display: block;
-  font-size: clamp(4rem, 13vw, 9rem);
-  color: #ffffff;
-  text-shadow: 5px 5px 0 rgba(0,0,0,0.4);
-  letter-spacing: 4px;
-}
-
-.titleLine2 {
-  display: block;
-  font-size: clamp(4rem, 13vw, 9rem);
-  color: #0a0a0a;
-  letter-spacing: 4px;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.08);
-}
-
-.subtitle {
-  font-family: 'Special Elite', serif;
-  font-size: clamp(0.75rem, 1.8vw, 1rem);
-  color: rgba(0,0,0,0.5);
-  font-style: italic;
-  letter-spacing: 2px;
-}
-
-/* ── TARJETA PRÓXIMO SHOW ── */
-.showCard {
-  background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(0,0,0,0.3);
-  border-top: 3px solid #0a0a0a;
-  padding: 18px 22px;
-  min-width: 220px;
-  max-width: 260px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  flex-shrink: 0;
-}
-
-.showCardLabel {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.58rem;
-  letter-spacing: 5px;
-  color: rgba(0,0,0,0.5);
-  text-transform: uppercase;
-  margin-bottom: 2px;
-}
-
-.showDate {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  color: #ffffff;
-  text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
-  line-height: 1;
-  letter-spacing: 4px;
-}
-
-.showDivider {
-  width: 100%;
-  height: 1px;
-  background: rgba(0,0,0,0.25);
-  margin: 4px 0;
-}
-
-.showVenue {
-  font-size: 1.1rem;
-  color: #ffffff;
-  letter-spacing: 2px;
-}
-
-.showCity {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.58rem;
-  letter-spacing: 3px;
-  color: rgba(0,0,0,0.5);
-  text-transform: uppercase;
-}
-
-.showMeta {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 4px;
-}
-
-.showMetaItem {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 2px;
-  color: rgba(0,0,0,0.6);
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.showMetaDot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #0a0a0a;
-  opacity: 0.5;
-  flex-shrink: 0;
-}
-
-.showBtn {
-  display: block;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.9rem;
-  letter-spacing: 4px;
-  padding: 0.6rem 1rem;
-  background: #0a0a0a;
-  color: #ffffff;
-  text-decoration: none;
-  text-align: center;
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%);
-  margin-top: 6px;
-  transition: background 0.15s;
-}
-
-.showBtn:hover {
-  background: #1e1e1e;
-}
-
-/* ── LÍNEAS RASGADAS ── */
-.scratch {
-  width: 100%;
-  height: 3px;
-  background: rgba(0,0,0,0.15);
-  margin-bottom: 3px;
-  clip-path: polygon(0 0, 100% 30%, 100% 100%, 0 70%);
-}
-
-.scratch2 {
-  width: 100%;
-  height: 1px;
-  background: rgba(0,0,0,0.08);
-  margin-bottom: 0;
-}
-
-/* ── FOTOS GRANDES ── */
-.membersRow {
-  margin-top: 5%;
-  display: flex;
-  justify-content: center;
-  flex: 1;
-  width: 100%;
-  gap: 4px;
-}
-
-.memberWrap {
-  flex: 1;
-  max-width: 280px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.memberWrapTall .memberPhoto {
-  transform: translateY(-24px);
-}
-
-.memberPhoto {
-  width: 100%;
-  aspect-ratio: 3 / 5;
-  background: linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.6) 100%);
-  border-top: 3px solid rgba(0,0,0,0.35);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  position: relative;
-  overflow: hidden;
-}
-
-.memberImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  filter: grayscale(100%) contrast(1.15) brightness(0.85);
-  position: absolute;
-  inset: 0;
-}
-
-.placeholderIcon {
-  font-size: clamp(3rem, 6vw, 5rem);
-  color: rgba(0,0,0,0.1);
-  line-height: 1;
-}
-
-.placeholderLabel {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.48rem;
-  letter-spacing: 3px;
-  color: rgba(0,0,0,0.18);
-  text-transform: uppercase;
-}
-
-.nameTag {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
-  padding: 28px 10px 10px;
-  text-align: center;
-}
-
-.nameTagName {
-  display: block;
-  font-size: clamp(0.75rem, 1.5vw, 1rem);
-  letter-spacing: 2px;
-  color: #ffffff;
-}
-
-.nameTagRole {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: clamp(0.4rem, 0.8vw, 0.52rem);
-  letter-spacing: 3px;
-  color: #CC0000;
-  text-transform: uppercase;
-}
-
-
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.35; }
-  50%       { opacity: 0.75; }
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .heroInner { padding: 20px 20px 0; }
-  .showCard  { min-width: 180px; max-width: 200px; padding: 14px 16px; }
-}
-
-@media (max-width: 680px) {
-  .topRow {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .showCard {
-    max-width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: flex;
     align-items: center;
-    gap: 10px;
-  }
-  .showDate    { font-size: 2.5rem; }
-  .showDivider { display: none; }
-  .membersRow  { gap: 2px; }
-  .memberWrapTall .memberPhoto { transform: translateY(-12px); }
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
 }
 
-@media (max-width: 480px) {
-  .heroInner  { padding: 14px 14px 0; }
-  .showCard   { padding: 10px 12px; }
+/* ==========================================
+             OVERLAY
+========================================== */
+
+.hero-overlay {
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.75)
+        );
+
+    z-index: 1;
+
+}
+
+/* ==========================================
+          EFECTO KEN BURNS
+========================================== */
+
+.hero-slide{
+
+    animation: heroZoom 12s linear infinite alternate;
+
+}
+
+@keyframes heroZoom{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+/* ==========================================
+         TEXTO GIGANTE FONDO
+========================================== */
+
+.hero-bg-text{
+
+    position:absolute;
+
+    right:-60px;
+
+    bottom:-70px;
+
+    font-family:"Bebas Neue",sans-serif;
+
+    font-size:16rem;
+
+    line-height:.8;
+
+    color:white;
+
+    opacity:.03;
+
+    user-select:none;
+
+    pointer-events:none;
+
+    z-index:2;
+
+}
+
+/* ==========================================
+            CONTENIDO
+========================================== */
+
+.hero-content{
+
+    position:relative;
+
+    z-index:5;
+
+    max-width:700px;
+
+    margin-left:8%;
+
+    color:white;
+
+    animation:fadeUp .9s ease;
+
+}
+
+/* ==========================================
+            SUBTITULO
+========================================== */
+
+.hero-subtitle{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    margin-bottom:25px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(10px);
+
+    font-family:"Share Tech Mono";
+
+    letter-spacing:2px;
+
+    font-size:.85rem;
+
+    text-transform:uppercase;
+
+    color:#F0EDE8;
+
+}
+
+
+/* ==========================================
+            TITULO
+========================================== */
+
+.hero-title{
+
+    font-family:"Bebas Neue",sans-serif;
+
+    font-size:clamp(5rem,11vw,9rem);
+
+    line-height:.9;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+
+    color:white;
+
+    text-shadow:
+
+    0 0 10px rgba(204,0,0,.25),
+
+    0 0 35px rgba(204,0,0,.15);
+
+}
+
+.hero-title::after{
+
+    content:"";
+
+    display:block;
+
+    width:120px;
+
+    height:5px;
+
+    margin-top:18px;
+
+    background:#CC0000;
+
+}
+
+
+/* ==========================================
+          DESCRIPCION
+========================================== */
+
+.hero-description{
+
+    font-family:"Special Elite";
+
+    font-size:1.15rem;
+
+    line-height:1.8;
+
+    color:#E7E7E7;
+
+    max-width:620px;
+
+    margin-bottom:40px;
+
+}
+
+/* ==========================================
+            BOTONES
+========================================== */
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn-primary{
+
+    padding:16px 34px;
+
+    background:#CC0000;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-family:"Share Tech Mono";
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    clip-path:polygon(
+        8% 0,
+        100% 0,
+        92% 100%,
+        0 100%
+    );
+
+    transition:.35s;
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-5px);
+
+    background:#8B0000;
+
+    box-shadow:
+
+    0 0 20px rgba(204,0,0,.7);
+
+}
+
+.btn-secondary{
+
+    padding:16px 34px;
+
+    background:transparent;
+
+    border:2px solid white;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-family:"Share Tech Mono";
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    clip-path:polygon(
+        8% 0,
+        100% 0,
+        92% 100%,
+        0 100%
+    );
+
+    transition:.35s;
+
+}
+
+.btn-secondary:hover{
+
+    background:white;
+
+    color:black;
+
+}
+
+/* ==========================================
+            FLECHAS
+========================================== */
+
+.hero-arrow{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+    color:white;
+
+    font-size:1.5rem;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    z-index:20;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.hero-arrow:hover{
+
+    background:#CC0000;
+
+    transform:translateY(-50%) scale(1.08);
+
+    box-shadow:
+        0 0 20px rgba(204,0,0,.7);
+
+}
+
+.hero-arrow-left{
+
+    left:35px;
+
+}
+
+.hero-arrow-right{
+
+    right:35px;
+
+}
+
+/* ==========================================
+              DOTS
+========================================== */
+
+.hero-dots{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:45px;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:14px;
+
+    z-index:30;
+
+}
+
+.hero-dot{
+
+    width:14px;
+
+    height:14px;
+
+    border-radius:50%;
+
+    border:2px solid white;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.hero-dot:hover{
+
+    border-color:#CC0000;
+
+}
+
+.hero-dot.active{
+
+    background:#CC0000;
+
+    border-color:#CC0000;
+
+    transform:scale(1.3);
+
+}
+
+
+/* ==========================================
+            SCROLL
+========================================== */
+
+.hero-scroll{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:120px;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:12px;
+
+    z-index:20;
+
+}
+
+.hero-scroll span{
+
+    font-family:"Share Tech Mono";
+
+    font-size:.8rem;
+
+    letter-spacing:3px;
+
+    color:#ffffffaa;
+
+}
+
+.hero-scroll-line{
+
+    width:2px;
+
+    height:50px;
+
+    background:white;
+
+    animation:scrollLine 1.8s infinite;
+
+}
+
+@keyframes scrollLine{
+
+    0%{
+
+        transform:scaleY(0);
+
+        transform-origin:top;
+
+    }
+
+    50%{
+
+        transform:scaleY(1);
+
+        transform-origin:top;
+
+    }
+
+    51%{
+
+        transform-origin:bottom;
+
+    }
+
+    100%{
+
+        transform:scaleY(0);
+
+        transform-origin:bottom;
+
+    }
+
+}
+
+/* ==========================================
+            ANIMACIONES
+========================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================
+            TABLET
+========================================== */
+
+@media(max-width:992px){
+
+.hero-content{
+
+    margin:0 auto;
+
+    padding:0 40px;
+
+    text-align:center;
+
+}
+
+.hero-buttons{
+
+    justify-content:center;
+
+}
+
+.hero-bg-text{
+
+    font-size:10rem;
+
+}
+
+.hero-arrow{
+
+    display:none;
+
+}
+
+}
+
+
+/* ==========================================
+            MOVIL
+========================================== */
+
+@media(max-width:768px){
+
+.hero{
+
+    height:90vh;
+
+}
+
+.hero-content{
+
+    padding:0 25px;
+
+}
+
+.hero-title{
+
+    font-size:4.5rem;
+
+}
+
+.hero-description{
+
+    font-size:1rem;
+
+    line-height:1.7;
+
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+.btn-primary,
+.btn-secondary{
+
+    width:100%;
+
+}
+
+.hero-bg-text{
+
+    display:none;
+
+}
+
+.hero-scroll{
+
+    display:none;
+
+}
+
+.hero-dots{
+
+    bottom:30px;
+
+}
+
+}
+
+
+@media(max-width:480px){
+
+.hero-title{
+
+    font-size:3.5rem;
+
+}
+
+.hero-description{
+
+    font-size:.95rem;
+
+}
+
+.hero-subtitle{
+
+    font-size:.7rem;
+
+}
+
+.hero-content{
+
+    padding:0 20px;
+
+}
+
 }
